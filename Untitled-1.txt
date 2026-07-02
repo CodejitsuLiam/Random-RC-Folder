@@ -1,0 +1,4 @@
+print("Once upon a time...\nThere was a speccies of intergalactic creature that lived forever. As such, these creatures became incredibly bored, as they had done everything possible \nin the universe. " \
+"However, one day, something caught their interest- one of them had discovered a new way to entertain themselves, and it was dying.\nYou see, " \
+"these creatures could not die of old age, thus their boredom, but they could die of other causes. So, they sought out the most exotic ways to die,\nand soon it became a trend. " \
+"And so, once upon a time, the oldest and wisest race in the universe commited mass suicide for self-entermainment. ")
