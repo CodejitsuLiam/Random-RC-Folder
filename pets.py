@@ -79,24 +79,24 @@ while health>0 and day<8:
     else:
         print("That is not an option!")
     if hunger > 100:
-        print("Your pet is at maximum hunger!")
+        print(pet_name + "'s belly is full!")
         hunger = 100
     elif hunger < 0:
-        print("Your pet is now sick...")
+        print(pet_name + " is very hungry...")
         hunger = 0
 
     if cleanliness > 100:
-        print("Your pet is at maximum cleanliness!")
+        print(pet_name + " is squeaky clean!")
         cleanliness = 100
     elif cleanliness < 0:
-        print("Your pet is very dirty...")
+        print(pet_name + " is very dirty...")
         cleanliness = 0
 
     if energy > 100:
-        print("Your pet is at maximum energy!")
+        print(pet_name + " is bouncing off the walls!")
         energy = 100
     elif energy < 0:
-        print("Your pet needs some sleep...")
+        print(pet_name + " needs some sleep...")
         energy = 0
     happiness=100-(50-(cleanliness/2))-(50-(energy/2))
     health=100-(20-(happiness/5))-(40-(hunger/2.5))-(40-(energy/2.5))
@@ -161,33 +161,33 @@ while health>0 and day>=8:
         pass
     elif selected_event == "Your pet played around in the mud!":
         cleanliness=cleanliness-30
-        print("\033[33mYour pet played around in the mud!\033[0m")
+        print(pet_name+"\033[33m played around in the mud!\033[0m")
     elif selected_event == "You forgot to feed your pet!":
         hunger=hunger-30
         print("\033[33mYou forgot to feed your pet!\033[0m")
     elif selected_event == "Your pet stayed up all night!":
         energy=energy-30
-        print("\033[33mYour pet stayed up all night!\033[0m")
+        print(pet_name+"\033[33m stayed up all night!\033[0m")
 
     if hunger > 100:
-        print("Your pet is at maximum hunger!")
+        print(pet_name + "'s belly is full'!")
         hunger = 100
     elif hunger < 0:
-        print("Your pet is very hungry...")
+        print(pet_name + " is very hungry...")
         hunger = 0
 
     if cleanliness > 100:
-        print("Your pet is at maximum cleanliness!")
+        print(pet_name+" is squeaky clean!")
         cleanliness = 100
     elif cleanliness < 0:
-        print("Your pet is very dirty...")
+        print(pet_name+" is very dirty...")
         cleanliness = 0
 
     if energy > 100:
-        print("Your pet is at maximum energy!")
+        print(pet_name+" is bouncing off the walls!")
         energy = 100
     elif energy < 0:
-        print("Your pet needs some sleep...")
+        print(pet_name+" needs some sleep...")
         energy = 0
     happiness=100-(50-(cleanliness/2))-(50-(energy/2))
     health=100-(20-(happiness/5))-(40-(hunger/2.5))-(40-(energy/2.5))
