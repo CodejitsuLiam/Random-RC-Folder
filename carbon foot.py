@@ -1,4 +1,5 @@
 #Values
+#Since different people gathered these values, they are not all accurate. For example, some may have looked for average impact, while I prefer marginal.
 Electrical=0.3
 Gaseous=0.45
 Induction=0.18
@@ -93,4 +94,4 @@ Ac_Total=float(ac)*float(Air_Conditioning)
 Cumulative_Total=Showers_Total+Lights_Total+Meals_Stove_Total+Computer_Total+Transportation_Final_Total+Ac_Total
 print("Your total carbon footprint is", Cumulative_Total, "kg of CO2 per day.")
 import sys
-sys.exit()
+sys.exit(0)
