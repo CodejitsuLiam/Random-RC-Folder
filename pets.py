@@ -45,7 +45,6 @@ elif pet_type_ip == 1 and pet_name == "William":
     print("Yo same!!!")
 elif pet_type_ip == 2 and pet_name == "Binka":
     print("RIP")
-#x's and 0's
 x_row_health= "x" * int(health/10)
 x_row_hunger= "x" * int(hunger/10)
 x_row_happiness= "x" * int(happiness/10)
@@ -146,8 +145,7 @@ while health>0 and day>=8:
         else:
             print("That is not an option!")
     import random
-    events = [
-    "Your pet played around in the mud!",
+    events = [    "Your pet played around in the mud!",
     "You forgot to feed your pet!",
     "Your pet stayed up all night!",
     "Nothing happened"    ]
