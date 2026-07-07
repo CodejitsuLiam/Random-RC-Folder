@@ -36,7 +36,6 @@ if pet_type_ip== 3:
     energy=energy+10
     special_weakness= "starts with less hunger"
     hunger=hunger-10
-#random code ig 
 pet_name=input("Choose the name you want for your pet. ")
 print("Your pet is " + pet_name + " the " + pet_type + ".\n" + petmoji)
 #eastereggs!
@@ -46,7 +45,7 @@ elif pet_type_ip == 1 and pet_name == "William":
     print("Yo same!!!")
 elif pet_type_ip == 2 and pet_name == "Binka":
     print("RIP")
-
+#x's and 0's
 x_row_health= "x" * int(health/10)
 x_row_hunger= "x" * int(hunger/10)
 x_row_happiness= "x" * int(happiness/10)
@@ -84,14 +83,12 @@ while health>0 and day<8:
     elif hunger < 0:
         print(pet_name + " is very hungry...")
         hunger = 0
-
     if cleanliness > 100:
         print(pet_name + " is squeaky clean!")
         cleanliness = 100
     elif cleanliness < 0:
         print(pet_name + " is very dirty...")
         cleanliness = 0
-
     if energy > 100:
         print(pet_name + " is bouncing off the walls!")
         energy = 100
@@ -153,8 +150,7 @@ while health>0 and day>=8:
     "Your pet played around in the mud!",
     "You forgot to feed your pet!",
     "Your pet stayed up all night!",
-    "Nothing happened"
-    ]
+    "Nothing happened"    ]
     event_percentages = [10,10,10,70]
     selected_event = random.choices(events, weights=event_percentages, k=1)[0]
     if selected_event == "Nothing happened":
@@ -168,21 +164,18 @@ while health>0 and day>=8:
     elif selected_event == "Your pet stayed up all night!":
         energy=energy-30
         print(pet_name+"\033[33m stayed up all night!\033[0m")
-
     if hunger > 100:
         print(pet_name + "'s belly is full'!")
         hunger = 100
     elif hunger < 0:
         print(pet_name + " is very hungry...")
         hunger = 0
-
     if cleanliness > 100:
         print(pet_name+" is squeaky clean!")
         cleanliness = 100
     elif cleanliness < 0:
         print(pet_name+" is very dirty...")
         cleanliness = 0
-
     if energy > 100:
         print(pet_name+" is bouncing off the walls!")
         energy = 100
