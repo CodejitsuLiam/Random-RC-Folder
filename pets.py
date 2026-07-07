@@ -53,7 +53,9 @@ x_row_happiness= "x" * int(happiness/10)
 print("Starting happiness: " + x_row_happiness)
 print("Starting health: " + x_row_health)
 print("Starting hunger: " + x_row_hunger)
-while health>0: 
+#firstweek
+day=0
+while health>0 and day<8: 
     action=input("A new day begins... what do you want to do? Enter 1 to rest your pet, enter 2 to feed your pet, and enter 3 to clean your pet. You can also press 4 to do nothing. ")
     if action== "1":
         energy=energy+20
@@ -67,11 +69,11 @@ while health>0:
         print("That is not an option!")
     action2=input("The day comes to an end... Choose something to do at the end of the day. The same rules as before apply. ")
     if action2== "1":
-        energy=energy+20
+        energy=energy+10
     elif action2== "2":
-        hunger=hunger+20
+        hunger=hunger+10
     elif action2== "3":
-        cleanliness=cleanliness+20
+        cleanliness=cleanliness+10
     elif action2== "4":
         pass
     else:
@@ -107,8 +109,101 @@ while health>0:
     energy -=10
     hunger -=10
     cleanliness -=10
+    day=day+1
     if health <=0:
         print("\033[31mGame Over!\033[0m")
+        import sys
+        sys.exit()
+#everythingafter
+print("\033[33mAfter a week, you have unlocked new options to use... a spa day, a big meal, and a bath. All of these will greatly increase the stat they correspond to, but you cannot choose a second option.\033[0m")
+while health>0 and day>=8:
+    action=input("A new day begins... what do you want to do? Enter 1 to rest your pet, 2 to give your pet a spa day, 3 to feed your pet, 4 to feed them a big meal, 5 to clean your pet, and 6 to give your pet a bath. You can also press 7 to do nothing. ")
+    if action== "1":
+        energy=energy+20
+    elif action== "3":
+        hunger=hunger+20
+    elif action== "5":
+        cleanliness=cleanliness+20
+    elif action== "2":
+        energy=energy+35
+    elif action== "4":
+        hunger=hunger+35
+    elif action== "6":
+        cleanliness=cleanliness+35
+    elif action== "7":
+        pass
+    else:
+        print("That is not an option!")
+    action2=None
+    if action in ['1', '3', '5', '7']:
+        action2=input("The day comes to an end... Choose something to do at the end of the day. Enter 1 to rest your pet, enter 2 to feed your pet, and enter 3 to clean your pet. You can also press 4 to do nothing. ")
+    if action2 is not None:
+        if action2== "1":
+            energy=energy+10
+        elif action2== "2":
+            hunger=hunger+10
+        elif action2== "3":
+            cleanliness=cleanliness+10
+        elif action2== "4":
+            pass
+        else:
+            print("That is not an option!")
+    import random
+    events = [
+    "Your pet played around in the mud!",
+    "You forgot to feed your pet!",
+    "Your pet stayed up all night!",
+    "Nothing happened"
+    ]
+    event_percentages = [10,10,10,70]
+    selected_event = random.choices(events, weights=event_percentages, k=1)[0]
+    if selected_event == "Nothing happened":
+        pass
+    elif selected_event == "Your pet played around in the mud!":
+        cleanliness=cleanliness-30
+        print("\033[33mYour pet played around in the mud!\033[0m")
+    elif selected_event == "You forgot to feed your pet!":
+        hunger=hunger-30
+        print("\033[33mYou forgot to feed your pet!\033[0m")
+    elif selected_event == "Your pet stayed up all night!":
+        energy=energy-30
+        print("\033[33mYour pet stayed up all night!\033[0m")
 
+    if hunger > 100:
+        print("Your pet is at maximum hunger!")
+        hunger = 100
+    elif hunger < 0:
+        print("Your pet is very hungry...")
+        hunger = 0
+
+    if cleanliness > 100:
+        print("Your pet is at maximum cleanliness!")
+        cleanliness = 100
+    elif cleanliness < 0:
+        print("Your pet is very dirty...")
+        cleanliness = 0
+
+    if energy > 100:
+        print("Your pet is at maximum energy!")
+        energy = 100
+    elif energy < 0:
+        print("Your pet needs some sleep...")
+        energy = 0
+    happiness=100-(50-(cleanliness/2))-(50-(energy/2))
+    health=100-(20-(happiness/5))-(40-(hunger/2.5))-(40-(energy/2.5))
+    x_row_health= "x" * int(health/10)
+    x_row_hunger= "x" * int(hunger/10)
+    x_row_happiness= "x" * int(happiness/10)
+    print("Happiness: " + str(x_row_happiness))
+    print("Health: " + str(x_row_health))
+    print("Hunger: " + str(x_row_hunger))
+    energy -=5
+    hunger -=5
+    cleanliness -=5
+    day=day+1
+    if health <=0:
+        print("\033[31mGame Over!\033[0m")
+        import sys
+        sys.exit()
 import sys
 sys.exit()
