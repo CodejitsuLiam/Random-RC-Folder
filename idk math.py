@@ -60,3 +60,6 @@ else:
 if Requirements_Not_Met and has_magic_ring:
     Dont_Print=True
     print("The ring allows you to GET FRIED LOL")
+def say_hello(name):
+    print(f"Hello, {name}!")
+say_hello("Random name")

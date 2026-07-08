@@ -77,31 +77,43 @@ while health>0 and day<8:
     else:
         print("That is not an option!")
     if hunger > 100:
-        print(pet_name + "'s belly is full!")
+        print(pet_name + "'\033[33m belly is full!\033[0m")
         hunger = 100
     elif hunger < 0:
-        print(pet_name + " is very hungry...")
+        print(pet_name + "\033[34m is very hungry...\033[0m")
         hunger = 0
     if cleanliness > 100:
-        print(pet_name + " is squeaky clean!")
+        print(pet_name + "\033[33m is squeaky clean!\033[0m")
         cleanliness = 100
     elif cleanliness < 0:
-        print(pet_name + " is very dirty...")
+        print(pet_name + "\033[34m is very dirty...\033[0m")
         cleanliness = 0
     if energy > 100:
-        print(pet_name + " is bouncing off the walls!")
+        print(pet_name + "\033[33m is bouncing off the walls!\033[0m")
         energy = 100
     elif energy < 0:
-        print(pet_name + " needs some sleep...")
+        print(pet_name + "\033[34m needs some sleep...\033[0m")
         energy = 0
     happiness=100-(50-(cleanliness/2))-(50-(energy/2))
     health=100-(20-(happiness/5))-(40-(hunger/2.5))-(40-(energy/2.5))
+
     x_row_health= "x" * int(health/10)
     x_row_hunger= "x" * int(hunger/10)
     x_row_happiness= "x" * int(happiness/10)
     print("Happiness: " + str(x_row_happiness))
     print("Health: " + str(x_row_health))
     print("Hunger: " + str(x_row_hunger))
+    quit=input("Enter quit if you wish to end the game. Otherwise, enter anything else. ")
+    if quit=="quit":
+        print("\033[31mYou quit the game...\033[0m")
+        break
+    else:
+        CURSOR_UP = "\033[1A"
+        CLEAR="\x1b[2K"
+        import time
+        time.sleep(0.5)
+        for e in range(999):
+            print(CLEAR + CURSOR_UP, end="")
     energy -=10
     hunger -=10
     cleanliness -=10
@@ -110,6 +122,9 @@ while health>0 and day<8:
         print("\033[31mGame Over!\033[0m")
         import sys
         sys.exit()
+if quit=="quit":
+    import sys
+    sys.exit()
 #everythingafter
 print("\033[33mAfter a week, you have unlocked new options to use... a spa day, a big meal, and a bath. All of these will greatly increase the stat they correspond to, but you cannot choose a second option.\033[0m")
 while health>0 and day>=8:
@@ -144,6 +159,7 @@ while health>0 and day>=8:
             pass
         else:
             print("That is not an option!")
+    #randomevents
     import random
     events = [    "Your pet played around in the mud!",
     "You forgot to feed your pet!",
@@ -155,30 +171,31 @@ while health>0 and day>=8:
         pass
     elif selected_event == "Your pet played around in the mud!":
         cleanliness=cleanliness-30
-        print(pet_name+"\033[33m played around in the mud!\033[0m")
+        print("\033[31m"+pet_name+" played around in the mud!\033[0m")
     elif selected_event == "You forgot to feed your pet!":
         hunger=hunger-30
-        print("\033[33mYou forgot to feed your pet!\033[0m")
+        print("\033[31mYou forgot to feed "+pet_name+"!\033[0m")
     elif selected_event == "Your pet stayed up all night!":
         energy=energy-30
-        print(pet_name+"\033[33m stayed up all night!\033[0m")
+        print("\033[31m"+pet_name+" stayed up all night!\033[0m")
+    #valuelimit
     if hunger > 100:
-        print(pet_name + "'s belly is full'!")
+        print("\033[33m"+pet_name + "'s belly is full'!\033[0m")
         hunger = 100
     elif hunger < 0:
-        print(pet_name + " is very hungry...")
+        print("\033[34m"+pet_name + " is very hungry...\033[0m")
         hunger = 0
     if cleanliness > 100:
-        print(pet_name+" is squeaky clean!")
+        print("\033[33m"+pet_name+" is squeaky clean!\033[0m")
         cleanliness = 100
     elif cleanliness < 0:
-        print(pet_name+" is very dirty...")
+        print("\033[34m"+pet_name+" is very dirty...\033[0m")
         cleanliness = 0
     if energy > 100:
-        print(pet_name+" is bouncing off the walls!")
+        print("\033[33m"+pet_name+" is bouncing off the walls!\033[0m")
         energy = 100
     elif energy < 0:
-        print(pet_name+" needs some sleep...")
+        print("\033[34m"+pet_name+" needs some sleep...\033[0m")
         energy = 0
     happiness=100-(50-(cleanliness/2))-(50-(energy/2))
     health=100-(20-(happiness/5))-(40-(hunger/2.5))-(40-(energy/2.5))
@@ -188,13 +205,26 @@ while health>0 and day>=8:
     print("Happiness: " + str(x_row_happiness))
     print("Health: " + str(x_row_health))
     print("Hunger: " + str(x_row_hunger))
+    quit=input("Enter quit if you wish to end the game. Otherwise, enter anything else. ")
+    if quit=="quit":
+        print("\033[31mYou quit the game...\033[0m")
+        break
+    else:
+        CURSOR_UP = "\033[1A"
+        CLEAR="\x1b[2K"
+        import time
+        time.sleep(0.5)
+        for e in range(999):
+            print(CLEAR + CURSOR_UP, end="")
     energy -=5
     hunger -=5
     cleanliness -=5
     day=day+1
+
     if health <=0:
-        print("\033[31mGame Over!\033[0m")
+        print("\033[31mGame Over! You kept your pet alive for "+str(day)+" days.\033[0m")
         import sys
         sys.exit()
-import sys
-sys.exit()
+if quit=="quit":
+    import sys
+    sys.exit()
