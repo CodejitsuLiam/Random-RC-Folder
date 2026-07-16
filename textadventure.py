@@ -110,6 +110,16 @@ def innoise():
         time.sleep(1)
     print("Suddenly, you hear a loud and anguished scream from a tunnel at your right. You peek down the tunnel, but it curves along the way, so you cannot see the end. ")
     time.sleep(6)
+def dontexplore():
+    print("You back away from the tunnel, and descend into the depths of the cave. Down here, everything is pitch black, and fear of the unknown is just as scary as whatever lies within that tunnel.")
+    time.sleep(5)
+    depths=input("Do you turn back or continue on? (Back or Continue)").strip().lower()
+    if depths=="back":
+        print("You turn away from the darkness, and start to leave the cave.")#work more on l8r
+    elif depths=="continue":
+        print("You continue into the dark, only to see that the cave ends. You turn away from the darkness, and start to leave the cave.")
+    else:
+        print("That is not an option.")
 def cavesequence():
     while True:
         caveenter = input(f"You see {cave["description"]}. Do you go in? ").strip().lower()
@@ -129,8 +139,8 @@ def encounter():
         enterorwalk=input("Do you enter the tunnel to see what lurks inside, do you continue exploring the caves, or do you leave the cave entirely? (Enter, Explore or Leave) ").strip().lower()
         if enterorwalk=="explore":
             print("You decide to leave for now and come back later, when you are feeling more confident.")
-            break
-            #more to work on l8r
+            dontexplore()
+            
         elif enterorwalk=="enter":
             print("You creep along the tunnel, walking stealthily as to not alert anything of your presence. Turning the corner, you are confused, as at the end of the tunnel is the man you met before! He faces away from you, but you recognize the tattered clothing and posture. ")
             time.sleep(10)
