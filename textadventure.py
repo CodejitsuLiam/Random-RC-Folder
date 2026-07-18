@@ -2,12 +2,18 @@ import time
 import random
 import sys
 inventory=[]
+health=100
 cave={"location": "north of the village", "description": "an ominous cave that looks like a gaping mouth", "itemsneeded": "a torch"}
 village={"description": "the only place you have ever known"}
 man={"clothesdescription": "ragged, torn, and speckled with dirt and blood", "description": "covered in cuts and scrapes from head to toe, and when he moves, he does so with great effort and pain", "words": "I have not long on this fair earth, but it is possible you can avenge me. There is a cave north of the village, where I met my untimely fate. Go there and defeat that which has defeated me."}
 def endignore():
     print("You decide to forget about everything that has happened today. Despite the death of the man you met at the edge of the woods, there is nothing in it for you to risk what happened to him. ")
     time.sleep(5)
+    print("\033[31mThe end.\033[0m")
+    sys.exit()
+def enddeath():
+    print("You died.")
+    time.sleep(0.5)
     print("\033[31mThe end.\033[0m")
     sys.exit()
 def dialogue():
@@ -37,7 +43,7 @@ def preparation():
         if weapongrab in ("no", "n"):
             print("Are you sure you don't want to grab the knife? ")
             time.sleep(2)
-#deletedialogueherewhileplaytesting
+#deletedialogueherewhileplaytesting In final version, put dialogue() here
 preparation()      
 def entercave():
     print("You enter the cave...")
@@ -67,6 +73,7 @@ def maybeattacked():
                 if hitmiss=="hit":
                     print(f"You stab at the spider with the knife, and you hit it! You step back, watching as it collapses to the ground.")
                 if hitmiss=="miss":
+                    health-=20
                     print("You miss the spider! It stabs its fangs into you, but you stab at it again, and this time, you hit it!")#healthgodownaddthatl8r
                 killorescape="killing"
                 break
@@ -75,7 +82,7 @@ def maybeattacked():
                 print("That is not an option")
 def outnoise():
     while True:
-        outnoise=input("As you walk away from the cave, you here an anguished scream come from the mouth of the cave. You spin around, but see nothing. The scream sounded human, but if someone is screaming like that, something must have caused it. Is it worth the risk to go into the cave and save the poor soul within? ").strip().lower()
+        outnoise=input("As you walk away from the cave, you hear an anguished scream come from the mouth of the cave. You spin around, but see nothing. The scream sounded human, but if someone is screaming like that, something must have caused it. Is it worth the risk to go into the cave and save the poor soul within? ").strip().lower()
         if outnoise in ("y","yes"):
             entercave()
             maybeattacked()
@@ -110,18 +117,9 @@ def innoise():
         time.sleep(1)
     print("Suddenly, you hear a loud and anguished scream from a tunnel at your right. You peek down the tunnel, but it curves along the way, so you cannot see the end. ")
     time.sleep(6)
-def dontexplore():
-    print("You back away from the tunnel, and descend into the depths of the cave. Down here, everything is pitch black, and fear of the unknown is just as scary as whatever lies within that tunnel.")
-    time.sleep(5)
-    depths=input("Do you turn back or continue on? (Back or Continue)").strip().lower()
-    if depths=="back":
-        print("You turn away from the darkness, and start to leave the cave.")#work more on l8r
-    elif depths=="continue":
-        print("You continue into the dark, only to see that the cave ends. You turn away from the darkness, and start to leave the cave.")
-    else:
-        print("That is not an option.")
 def cavesequence():
     while True:
+        global caveenter
         caveenter = input(f"You see {cave["description"]}. Do you go in? ").strip().lower()
         if caveenter in ("yes", "y"):
             entercave()
@@ -134,22 +132,60 @@ def cavesequence():
             break
         else:
             print("Please type either yes or no")
+def dontexplore():
+    print("You back away from the tunnel, and descend into the depths of the cave. Down here, everything is pitch black, and fear of the unknown is just as scary as whatever lies within that tunnel.")
+    time.sleep(5)
+    while True:
+        depths=input("Do you turn back or continue on? (Back or Continue) ").strip().lower()
+        if depths=="back":
+            print("You turn away from the darkness, and start to leave the cave.")
+            time.sleep(2)
+            break
+        elif depths=="continue":
+            print("You continue into the dark, only to see that the cave ends. You turn away from the darkness, and start to leave the cave.")
+            time.sleep(4)
+            break
+        else:
+            print("That is not an option.")
+    print("As you approach the tunnel once more, you hear footsteps coming from within. You duck behind a rock, and peek out from the side.")
+    time.sleep(2)
+    if caveenter in ("yes", "y"):
+        print("You wonder if the scream you heard was from the person whose footsteps you hear... or if it was someone else, and the person you hear was the cause of the scream.")
+        time.sleep(6)
+    if caveenter in ("no", "n"):
+        print("You wonder if the blood you saw leading into the tunnel came from the person you hear now.")
+        time.sleep(3)
+    print("But as the person emerges from the tunnel, you gasp in surprise, as the person before you is the man you met before!")
+    time.sleep(5)
+    print("He turns sharply towards you, sees you, and freezes. You cautiously emerge from behind the rock, feeling very wary of him, as you watched him die this morning at the edge of the woods.")
+    time.sleep(8)
+    print("")
 def encounter():
     while True:
         enterorwalk=input("Do you enter the tunnel to see what lurks inside, do you continue exploring the caves, or do you leave the cave entirely? (Enter, Explore or Leave) ").strip().lower()
         if enterorwalk=="explore":
             print("You decide to leave for now and come back later, when you are feeling more confident.")
+            time.sleep(3)
             dontexplore()
+            break
             
         elif enterorwalk=="enter":
             print("You creep along the tunnel, walking stealthily as to not alert anything of your presence. Turning the corner, you are confused, as at the end of the tunnel is the man you met before! He faces away from you, but you recognize the tattered clothing and posture. ")
             time.sleep(10)
+            print("You back away, hoping he hasn't seen you, and hide behind a rock outside of the tunnel.")
+            time.sleep(3)
+            print("He emerges from the tunnel, and you let out a gasp despite yourself, for it is rather offputting to see someone who should be dead.")
+            time.sleep(5)
+            print("He turns sharply towards you, sees you, and freezes. You cautiously emerge from behind the rock, feeling very wary of him, as you watched him die this morning at the edge of the woods.")
 
             break
         elif enterorwalk=="leave":
-            break#sync w/ explorefunction line 72
+            break#sync w/ explorefunction line 72 also maybe 
         else:
             print("You cannot do that!")
             time.sleep(2)
+def reveal():
+    print("smth")
 cavesequence()
 encounter()
+reveal()
