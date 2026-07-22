@@ -52,3 +52,5 @@ print("Graph saved: state_incarceration_vs_bachelors.png")
 plt.show()
 
 plt.close(fig)
+#https://en.wikipedia.org/wiki/List_of_U.S._states_and_territories_by_educational_attainment
+#https://www.andrewflusche.com/incarcerated-states/
