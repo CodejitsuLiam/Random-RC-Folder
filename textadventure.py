@@ -261,30 +261,82 @@ def reveal():
             break
         else:
             print("You can't do that!")
-def standrevisit():
-    print("")
-def sagenpc():
-    print("\\033[32mNot long ago, there lived a powerful wizard. The shapeshifter was his creation, not an organism of any kind, but rather an amalgamation of magic. \033[0m")#meaningoflife:achievementunlocked:tocrushyourenemies-conanbarbarian
+def finalsequence():
+    print("You leave the town, knowing this may be your last day alive, but you can't turn back now. You may be the only one who can defeat the shapeshifter now.")
     time.sleep(5)
-    print("\\033[32mThe shapeshifter is a very simple thing; all it can do is observe and copy behaviors. This was discovered by a group of adventurers who spied on it while it fought someone else. I was in this group.\033[0m")
+    while True:
+        finallook=input("Where will you look for it? You could go back to the cave, or look elsewhere.").strip().lower()
+        if finallook in ("cave", "back"):
+            print("You enter the cave, but shortly after, you realize after seeing you in the cave, it may just come to you, following its only instincts.")
+            time.sleep(5)
+            break
+        elif finallook in ("look", "else", "where",):
+            print("You realize after seeing you in the cave, it may just come to you, following its only instincts.")
+            time.sleep(4)
+            break
+        else:
+            print("Why would you look there?")
+            time.sleep(1.5)
+    print("You want every possible advantage, and because it's chasing you, you get to choose the battlefield.")
+    time.sleep(4)
+    print("You go into the cave, and find a place where the cave roof is low. You hope this will stop the shapeshifter from turning into a troll and killing you instantly.")
+    time.sleep(5)
+    finalstand=input("Soon enough, you hear footsteps. The shapeshifter nears you. Should you try to use the ring on the person immediately, or wait to confirm it's the shapeshifter?")
+    while True:
+        if finalstand in ("wait", "confirm"):
+            print("You lie in wait as the person turns the corner. They see you, and immediately turn into a troll. The rocks around you shift as the troll's bulk fills the cave.")
+            time.sleep(6)
+            print("You lunge at the troll with the ring, but as you do, the troll slashes at you, destabilizing the cave even more.")
+            time.sleep(5)
+            print("As the ring touches the troll, it dissolves into the air like mist. You have defeated the shapeshifter, but now the cave collapses around you. You defeated the shapeshifter, but at the cost of your life.")
+            time.sleep(2)
+            print("\033[95mAchievement Unlocked")
+            time.sleep(1)
+            print("Final sacrifice\033[0m")
+            sys.exit()
+        elif finalstand in ("immediately", "use", "ring"):
+            print("As the person turns the corner, you lunge out and touch the ring to them. A look of momentary panic flits across their face, before they dissolve into the air like mist. It was the shapeshifter, and YOU have defeated it!!!")
+            sys.exit()
+def standrevisit():
+    print("You thank the sage, and exit the building. Out of everything she said, one thing stood out to you the most. The sage described the shapeshifter as an amalgamation of magic. ")
+    time.sleep(6)
+    print("You make your way to the stand selling magical items that you saw earlier. You approach the owner once more, and say, \"The sage told me that the shapeshifter was made by magic. I was hoping you might be able to help me understand how that might help me.\"")
+    time.sleep(9)
+    print("The owner stares back at you in shock. \"You're trying to defeat the shapeshifter? But that thing is indestructible! You can't harm it, because... well, it's not really a physical thing. \"")
     time.sleep(7)
-    print("\\033[32mAll I could do was watch as it slew the poor soul, for I knew if it noticed me I would be dead too. Its behaviors were mechanical and repetitive, and it finally killed them by turning into a troll and slashing them to ribbons.\033[0m")
+    print("\"Yes,\" you say, \"She said that. However, I came to you to ask if your knowledge of magic could help me.\"")
+    time.sleep(5)
+    print("The owner grimaces and says, \"Oh. About that, I... don't really have knowledge of magic. I just sell magical items I've obtained, but most of what I know about them comes from whom or where I got them from.\"")
+    time.sleep(8)
+    print("\"Do you have anything that could help me?\" You say with a bit more force, hoping to get the conversation on track.")
+    time.sleep(4)
+    print("\"I believe I do. Let me look around for it.\" He says, and pulls out a ring from under the table. \"I don't usually have this on sale, but it's a ring that absorbs small and simple magic. Mostly, I loan it to people who need to undo pranks, but to defeat the shapeshifter, I'll loan it to you for free.\"")
+    time.sleep(11)
+    print("\"Small and simple magic...\" you think, remembering what the sage said about the magic holding it together. \"This might be just the thing I need to defeat the shapeshifter. I hope I'll be able to bring it back to you. \"")
+    time.sleep(10)
+    finalsequence()
+def sagenpc():
+    print("\033[32mNot long ago, there lived a powerful wizard. The shapeshifter was his creation, not an organism of any kind, but rather an amalgamation of magic. It is not a physical being, and cannot be harmed in conventional ways.\033[0m")
+    time.sleep(5)
+    print("\033[32mThe shapeshifter is a very simple thing; all it can do is observe and copy behaviors. This was discovered by a group of adventurers who spied on it while it fought someone else. I was in this group.\033[0m")
+    time.sleep(7)
+    print("\033[32mAll I could do was watch as it slew the poor soul, for I knew if it noticed me I would be dead too. Its behaviors were mechanical and repetitive, and it finally killed them by turning into a troll and slashing them to ribbons.\033[0m")
     time.sleep(7)
     if enterredcave=="sawtroll":
         print("I noticed that too!")
         time.sleep(1)
-        print("\\033[32mIndeed. But please don't interrupt.\033[0m")
+        print("\033[32mIndeed. But please don't interrupt.\033[0m")
         time.sleep(2)
-    print("\\033[32mYou see, the shapeshifter has only two instincts. It seeks to observe behaviors, then eliminate memory of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace. \033[0m")
+    print("\033[32mYou see, the shapeshifter has only two instincts. It seeks to observe behaviors, then eliminate memory of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace. \033[0m")
     time.sleep(8)
-    print("\\033[32mAt heart, however, the magic that holds it together is quite simple. It is a simple thing, the shapeshifter, but one that has grown into something almost indestructible. The wizard anticipated that it would learn behaviors, but didn't know that it would be so violent. It turned on its creator.\033[0m")
+    print("\033[32mAt heart, however, the magic that holds it together is quite simple. It is a simple thing, the shapeshifter, but one that has grown into something almost indestructible. The wizard anticipated that it would learn behaviors, but didn't know that it would be so violent. It turned on its creator.\033[0m")
     time.sleep(10)
-    print("\\033[32mWell, is there anything else you want to ask about?\033[0m")
+    print("\033[32mWell, is there anything else you want to ask about?\033[0m")
     while True:
         answerred=False
         raw_input=input("").strip().lower()
         if "meaning" in raw_input and "life" in raw_input:
-            print("\\033[32mUninspired and cliche.\033[0m")
+            print("\033[32mUninspired and cliche.\033[0m")
             time.sleep(2)
             print("\033[95mAchievement Unlocked\033[0m")
             time.sleep(1)
@@ -298,15 +350,15 @@ def sagenpc():
             #time.sleep(1)
             #answerred=True
         elif "behavior" in raw_input or "instincts" in raw_input and not answerred:
-            print("\\033[32mThe shapeshifter has only two instincts. It seeks to \033[33mobserve behaviors\\033[32m, then \033[33meliminate memory\\033[32m of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace.\033[0m")
+            print("\033[32mThe shapeshifter has only two instincts. It seeks to \033[33mobserve behaviors\033[32m, then \033[33meliminate memory\033[32m of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace.\033[0m")
             time.sleep(8)
             answerred=True
         elif "wizard" in raw_input or "creator" in raw_input and not answerred:
-            print("\\033[32mThe wizard anticipated that it would \033[33mlearn behaviors\\033[32m, but didn't know that it would be so \033[33mviolent\\033[32m. It turned on its creator.\033[0m")
+            print("\033[32mThe wizard anticipated that it would \033[33mlearn behaviors\033[32m, but didn't know that it would be so \033[33mviolent\033[32m. It turned on its creator.\033[0m")
             time.sleep(6)
             answerred=True
         elif "magic" in raw_input or "simple" in raw_input and not answerred:
-            print("\\033[32mAt heart, the \033[33magic\033[33m that holds it together is quite \033[33msimple\033[0m.")
+            print("\033[32mAt heart, the \033[33mmagic\033[32m that holds it together is quite \033[33msimple\033[0m.")
             time.sleep(4)
             answerred=True
         elif "no" in raw_input or "nothing" in raw_input or "n" in raw_input or "nah" in raw_input and not answerred:
@@ -314,8 +366,9 @@ def sagenpc():
             break
             
         else:
-            print("\\033[32mThe sage doesn't understand.\033[0m")
-    print("\\033[32mThank you for visiting, and I wish you good luck on your journey.\033[0m")
+            print("\033[32mThe sage doesn't understand.\033[0m")
+            time.sleep(1)
+    print("\033[32mThank you for visiting, and I wish you good luck on your journey.\033[0m")
     standrevisit()
 def sageintro():
     print("As you walk into the central plaza, a small circular area paved with cobblestones, you immediately see what the stand owner meant. One building stands out from the others, radiating a sense of knowledge and wisdom.")
@@ -377,6 +430,7 @@ def townintro():
         if viewe in ("yes", "y", "e", "inventory", "look", "trade"):
             for item in inventory:
                 print(f"You have {item}.")
+                time.sleep(1)
             if "a spider's eye" in inventory:
                 print("The owner leans over excitedly. \"A spider's eye, huh? Well, I'll  be! You must be an adventurer!\" He says.")
                 time.sleep(5)
@@ -396,6 +450,7 @@ def townintro():
                 time.sleep(8)
                 print("The owner nods. \"There is a wise sage at the center of the town, who used to be an adventurer herself. You'll know where she is when you see it.\" You thank him and head towards the town center.")
                 time.sleep(6)
+                break
             sageintro()
         elif viewe in ("no", "n"):
             print("You say to the owner of the stand, \"Sorry, but I'm not really interested right now. However, I'm on a quest, so if you could point me toward someone with much knowledge of the world, that would be greatly appreciated.\"")
@@ -417,13 +472,12 @@ def explorefunction():
     if jimothy=="JIMOTHY":
         raccoonname=input("As you approach the town, you see an oddly spherical raccoon. What will you name him? ")
         print(f"You named the raccoon {raccoonname}.")
-        if raccoonname in ("Jimothy", "jimothy",):
+        if raccoonname in ("Jimothy", "jimothy", "JIMOTHY"):
             print("\033[95mAchievement Unlocked\033[0m")
             time.sleep(1)
             print("\033[95mJIMOTHY!!!\033[0m")
             time.sleep(1)
     townintro()
-
 cavesequence()
 encounter()
 reveal()
