@@ -261,11 +261,65 @@ def reveal():
             break
         else:
             print("You can't do that!")
+def standrevisit():
+    print("")
 def sagenpc():
-    print("npc")
+    print("\\033[32mNot long ago, there lived a powerful wizard. The shapeshifter was his creation, not an organism of any kind, but rather an amalgamation of magic. \033[0m")#meaningoflife:achievementunlocked:tocrushyourenemies-conanbarbarian
+    time.sleep(5)
+    print("\\033[32mThe shapeshifter is a very simple thing; all it can do is observe and copy behaviors. This was discovered by a group of adventurers who spied on it while it fought someone else. I was in this group.\033[0m")
+    time.sleep(7)
+    print("\\033[32mAll I could do was watch as it slew the poor soul, for I knew if it noticed me I would be dead too. Its behaviors were mechanical and repetitive, and it finally killed them by turning into a troll and slashing them to ribbons.\033[0m")
+    time.sleep(7)
+    if enterredcave=="sawtroll":
+        print("I noticed that too!")
+        time.sleep(1)
+        print("\\033[32mIndeed. But please don't interrupt.\033[0m")
+        time.sleep(2)
+    print("\\033[32mYou see, the shapeshifter has only two instincts. It seeks to observe behaviors, then eliminate memory of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace. \033[0m")
+    time.sleep(8)
+    print("\\033[32mAt heart, however, the magic that holds it together is quite simple. It is a simple thing, the shapeshifter, but one that has grown into something almost indestructible. The wizard anticipated that it would learn behaviors, but didn't know that it would be so violent. It turned on its creator.\033[0m")
+    time.sleep(10)
+    print("\\033[32mWell, is there anything else you want to ask about?\033[0m")
+    while True:
+        answerred=False
+        raw_input=input("").strip().lower()
+        if "meaning" in raw_input and "life" in raw_input:
+            print("\\033[32mUninspired and cliche.\033[0m")
+            time.sleep(2)
+            print("\033[95mAchievement Unlocked\033[0m")
+            time.sleep(1)
+            print("\033[95m42\033[0m")
+            time.sleep(1)
+            answerred=True
+        #elif "" in raw_input and "" in raw_input and not answerred:
+            #print("\033[95mAchievement Unlocked\033[0m")
+            #time.sleep(1)
+            #print("\033[95m\033[0m")
+            #time.sleep(1)
+            #answerred=True
+        elif "behavior" in raw_input or "instincts" in raw_input and not answerred:
+            print("\\033[32mThe shapeshifter has only two instincts. It seeks to \033[33mobserve behaviors\\033[32m, then \033[33meliminate memory\\033[32m of the organism it learned them from. It adapted, and is now able to disguise itself, hide itself, and inevitably, kill them and leave not a trace.\033[0m")
+            time.sleep(8)
+            answerred=True
+        elif "wizard" in raw_input or "creator" in raw_input and not answerred:
+            print("\\033[32mThe wizard anticipated that it would \033[33mlearn behaviors\\033[32m, but didn't know that it would be so \033[33mviolent\\033[32m. It turned on its creator.\033[0m")
+            time.sleep(6)
+            answerred=True
+        elif "magic" in raw_input or "simple" in raw_input and not answerred:
+            print("\\033[32mAt heart, the \033[33magic\033[33m that holds it together is quite \033[33msimple\033[0m.")
+            time.sleep(4)
+            answerred=True
+        elif "no" in raw_input or "nothing" in raw_input or "n" in raw_input or "nah" in raw_input and not answerred:
+            answerred=True
+            break
+            
+        else:
+            print("\\033[32mThe sage doesn't understand.\033[0m")
+    print("\\033[32mThank you for visiting, and I wish you good luck on your journey.\033[0m")
+    standrevisit()
 def sageintro():
     print("As you walk into the central plaza, a small circular area paved with cobblestones, you immediately see what the stand owner meant. One building stands out from the others, radiating a sense of knowledge and wisdom.")
-    time.sleep(5)
+    time.sleep(6)
     print("You enter the building, and go up a set of stairs with a sign that says \"Ascend these stairs to seek advice from the sage.\" As you emerge onto the second floor, you see the sage with her back to you.")
     time.sleep(7)
     print("Feeling slightly intimidated, you cautiously approach, but before you get near her, she says in a raspy voice, \"Well? Will you introduce yourself to me, or will I have to call you Mysterious Adventurer for the rest of this hopefully short conversation?\"")
@@ -323,28 +377,35 @@ def townintro():
         if viewe in ("yes", "y", "e", "inventory", "look", "trade"):
             for item in inventory:
                 print(f"You have {item}.")
-            print("The owner leans over excitedly. \"A spider's eye, huh? Well, I'll  be! You must be an adventurer!\" He says.")
-            time.sleep(5)
-            print("You reply without much enthusiasm, \"I guess. Really, I'm just on a quest, and then I'll probably go back to my village forever.\"")
-            time.sleep(5)
-            print("\"Either way, \" the owner says, \"do want to trade that for anything?\"")
-            time.sleep(3)
-            print("You think for a few seconds. Eventually, you reply, \"I'd like to figure out what I should do first, so I have a better idea of what to use it for.\"")
-            time.sleep(5)
-            print("The owner nods and says, \"If you're on quest and looking for advice, there is a wise sage at the center of the town, who used to be an adventurer herself. You'll know where she is when you see it.\" You thank him and head towards the town center.\"")
-            time.sleep(8)
-            break
-
+            if "a spider's eye" in inventory:
+                print("The owner leans over excitedly. \"A spider's eye, huh? Well, I'll  be! You must be an adventurer!\" He says.")
+                time.sleep(5)
+                print("You reply without much enthusiasm, \"I guess. Really, I'm just on a quest, and then I'll probably go back to my village forever.\"")
+                time.sleep(5)
+                print("\"Either way, \" the owner says, \"do want to trade that for anything?\"")
+                time.sleep(3)
+                print("You think for a few seconds. Eventually, you reply, \"I'd like to figure out what I should do first, so I have a better idea of what to use it for.\"")
+                time.sleep(5)
+                print("The owner nods and says, \"If you're on quest and looking for advice, there is a wise sage at the center of the town, who used to be an adventurer herself. You'll know where she is when you see it.\" You thank him and head towards the town center.\"")
+                time.sleep(8)
+                break
+            if "a spider's eye" not in inventory:
+                print("\"Well, come back if you have anything better to trade.\" The owner says.")
+                time.sleep(3)
+                print("\"Before I go, \" you say, \"I'm on a quest, so if you could point me toward someone with much knowledge of the world, that would be greatly appreciated.\"")
+                time.sleep(8)
+                print("The owner nods. \"There is a wise sage at the center of the town, who used to be an adventurer herself. You'll know where she is when you see it.\" You thank him and head towards the town center.")
+                time.sleep(6)
+            sageintro()
         elif viewe in ("no", "n"):
             print("You say to the owner of the stand, \"Sorry, but I'm not really interested right now. However, I'm on a quest, so if you could point me toward someone with much knowledge of the world, that would be greatly appreciated.\"")
             time.sleep(8)
             print("The owner nods. \"There is a wise sage at the center of the town, who used to be an adventurer herself. You'll know where she is when you see it.\" You thank him and head towards the town center.")
             time.sleep(6)
-            print("")
             break
         else:
             print("That is not an option!")
-        sageintro()
+    sageintro()
 def explorefunction():
     print(f"You see a path in the woods, composed of dirt and gravel. {caveorno}ou follow it for an hour, until you see a town in the distance through the trees.")
     time.sleep(6)
